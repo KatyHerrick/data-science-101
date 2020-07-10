@@ -34,7 +34,7 @@ print("7. {}".format(arr))
 
 # 8. Generate an array of 10 linearly spaced points between 
 # 0 and 1. Output step size as well.
-arr = np.linspace(0, 1, retstep=True)
+arr = np.linspace(0, 1, 10, retstep=True)
 print("8. {}".format(arr))
 
 # 9. Perform the following tasks:
@@ -72,31 +72,33 @@ print("14. {}".format(arr))
 # 15. Generate the following outputs.
 # a) 6x5 with 0-29
 # b) [[17, 18, 19], [22, 23, 24], [27, 28, 29]]
-# c) [[1], [6], [11]]
-# d) [10, 11, 12, 13, 14]
+# c) 29
+# d) [[1], [6], [11]]
 # e) [10, 11, 12, 13, 14],[15, 16, 17, 18, 19]]
 arr = np.arange(0, 30).reshape(6, 5)
 print("15a. {}".format(arr))
 print("15b. {}".format(arr[3:, 2:]))
-print("15c. {}".format(arr[:3, 1:2]))
-print("15d. {}".format(arr[5, 4]))
+print("15c. {}".format(arr[5, 4]))
+print("15d. {}".format(arr[:3, 1:2]))
 print("15e. {}".format(arr[2:4, :]))
 
 # 16. Calculate the sum of all the numbers in the array.
-print("16. {}".format(sum(sum(arr))))
+print("16. {}".format(arr.sum()))
 
 # 17. Calculate sum of all the rows and columns.
-row_sums = []
-for row in range(0, arr.shape[0]):
-	row_sum = 0
-	row_sums.append(0)
-	for num in arr[row]:
-		row_sums[row] += num
-
-col_sums = sum(arr)
+# Without numpy's sum()
+#
+# row_sums = []
+# for row in range(0, arr.shape[0]):
+# 	row_sum = 0
+# 	row_sums.append(0)
+# 	for num in arr[row]:
+# 		row_sums[row] += num
+# col_sums = sum(arr)
+#
 print(
 	"""17. Row sum: {}
-	Column sum: {}""".format(row_sums, col_sums))
+	Column sum: {}""".format(arr.sum(axis = 1), arr.sum(axis = 0)))
 
 # 18. Calculate the standard deviation of the values.
 print("18. {}".format(arr.std()))
